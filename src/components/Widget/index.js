@@ -167,6 +167,7 @@ class Widget extends Component {
       dispatch(triggerMessageDelayed(true));
       this.newMessageTimeout(message);
     } else {
+      console.log(message);
       this.messages.push(message);
     }
   }
@@ -239,6 +240,7 @@ class Widget extends Component {
     if (botUtterance.metadata && botUtterance.metadata.customCss) {
       newMessage.customCss = botUtterance.metadata.customCss;
     }
+    console.log(newMessage);
     this.handleMessageReceived(newMessage);
   }
 
@@ -365,7 +367,7 @@ class Widget extends Component {
 
       socket.on('bot_uttered', (botUttered) => {
         // botUttered.attachment.payload.elements = [botUttered.attachment.payload.elements];
-        // console.log(botUttered);
+        console.log(botUttered);
         this.handleBotUtterance(botUttered);
       });
 

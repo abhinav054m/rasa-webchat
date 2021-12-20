@@ -15,6 +15,7 @@ import {
 import * as actionTypes from '../actions/actionTypes';
 
 export default function (storage) {
+  //change this to adaptive with message limit and rewind
   const initialState = List([]);
 
   return function reducer(state = initialState, action) {

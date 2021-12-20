@@ -7,7 +7,7 @@ export default function (socketUrl, customData, path, protocol, protocolOptions)
   const socketProtocol = PROTOCOLS[protocol];
 
   if (socketProtocol !== undefined) {
-    return socketProtocol(socketUrl, customData, path, protocolOptions);
+    return socketio(socketUrl, customData, path, protocolOptions);
   }
   throw new Error(`Undefined socket protocol ${protocol}`);
 }
