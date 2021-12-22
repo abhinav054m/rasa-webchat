@@ -101,7 +101,9 @@ module.exports = [{
               replace: version
             }
           },
-          { loader: 'babel-loader' }
+          { loader: 'babel-loader',
+            options: { presets: ['@babel/env','@babel/preset-react'] },
+          }
         ]
       },
       {
