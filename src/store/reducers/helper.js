@@ -97,7 +97,7 @@ export function getLocalSession(storage, key) {
     // Create a new session to return
     session = {
       ...parsedSession,
-      conversation: formattedConversation,
+      conversation: [],
       params: formattedParams,
       metadata: formattedMetadata
     };
@@ -167,3 +167,7 @@ export const storeMetadataTo = storage => (metadata) => {
   storage.setItem(SESSION_NAME, JSON.stringify(newSession));
   return metadata;
 };
+
+export const deleteChatId = storage =>() => {
+
+}

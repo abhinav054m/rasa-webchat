@@ -206,6 +206,8 @@ export default React.forwardRef((props, ref) => (
   <RasaWebchatProWithRules innerRef={ref} {...props} />
 ));
 
+
+
 export const selfMount = (props, element = null) => {
   const load = () => {
     if (element === null) {
@@ -218,10 +220,15 @@ export const selfMount = (props, element = null) => {
     ReactDOM.render(webchatPro, mountElement);
   };
   if (document.readyState === 'complete') {
+    console.log("loaded")
     load();
   } else {
     window.addEventListener('load', () => {
       load();
     });
   }
+  window.addEventListener('load',()=>{
+    console.log("This is the init log ........ ");
+    load();
+  })
 };
