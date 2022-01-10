@@ -378,11 +378,15 @@ class Widget extends Component {
       // Request a session from server
       socket.on('connect', () => {
         const localId = this.getSessionId();
+
         socket.emit('session_request', { session_id: localId });
+        
       });
 
       // When session_confirm is received from the server:
       socket.on('session_confirm', (sessionObject) => {
+        console.log("this is the sessionobject log .......")
+        console.log(sessionObject);
         const remoteId = (sessionObject && sessionObject.session_id)
           ? sessionObject.session_id
           : sessionObject;
@@ -401,7 +405,7 @@ class Widget extends Component {
           // storage.clear();
           // Store the received session_id to storage
 
-          storeLocalSession(storage, SESSION_NAME, remoteId);
+          // storeLocalSession(storage, SESSION_NAME, remoteId);
           dispatch(pullSession());
           if (sendInitPayload) {
             this.trySendInitPayload();
