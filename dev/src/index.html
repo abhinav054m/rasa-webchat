@@ -7,7 +7,8 @@
         if (!WebChat) setTimeout(load, 100);
         if (WebChat) WebChat.default({
           customData:{language:"en"},
-          socketUrl:"http://localhost:3030",
+          socketUrl:"http://localhost:5005",
+          jwt_token: "this_is_from_widget",
           withRules: true,
         });
       }

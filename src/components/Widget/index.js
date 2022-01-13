@@ -360,7 +360,8 @@ class Widget extends Component {
       initialized,
       connectOn,
       tooltipPayload,
-      tooltipDelay
+      tooltipDelay,
+      jwt_token
     } = this.props;
     if (!socket.isInitialized()) {
       socket.createSocket();
@@ -379,7 +380,7 @@ class Widget extends Component {
       socket.on('connect', () => {
         const localId = this.getSessionId();
 
-        socket.emit('session_request', { session_id: localId });
+        socket.emit('session_request', { session_id: localId, token: jwt_token });
         
       });
 
@@ -612,6 +613,7 @@ class Widget extends Component {
         displayUnreadCount={this.props.displayUnreadCount}
         showMessageDate={this.props.showMessageDate}
         tooltipPayload={this.props.tooltipPayload}
+        jwt_token = {this.props.jwt_token}
       />
     );
   }

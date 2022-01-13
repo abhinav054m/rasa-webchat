@@ -16,6 +16,7 @@ const ConnectedWidget = forwardRef((props, ref) => {
       customData,
       path,
       protocol,
+      jwt_token,
       protocolOptions,
       onSocketEvent
     ) {
@@ -23,6 +24,7 @@ const ConnectedWidget = forwardRef((props, ref) => {
       this.customData = customData;
       this.path = path;
       this.protocol = protocol;
+      this.jwt_token = jwt_token;
       this.protocolOptions = protocolOptions;
       this.onSocketEvent = onSocketEvent;
       this.socket = null;
@@ -60,6 +62,7 @@ const ConnectedWidget = forwardRef((props, ref) => {
         this.customData,
         this.path,
         this.protocol,
+        this.jwt_token,
         this.protocolOptions
       );
       // We set a function on session_confirm here so as to avoid any race condition
@@ -90,6 +93,7 @@ const ConnectedWidget = forwardRef((props, ref) => {
       props.customData,
       props.socketPath,
       props.protocol,
+      props.jwt_token,
       props.protocolOptions,
       props.onSocketEvent
     );
@@ -223,6 +227,7 @@ ConnectedWidget.defaultProps = {
   onSocketEvent: {},
   protocol: 'socketio',
   socketUrl: 'http://localhost',
+  jwt_token: "test_from_props",
   protocolOptions: {},
   badge: 0,
   embedded: false,
