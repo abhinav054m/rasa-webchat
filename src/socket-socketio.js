@@ -5,7 +5,7 @@ export default function (socketUrl, customData, path, token) {
     path:path,
     auth: {
       'token': token
-    }
+    },
   }
   const socket = io(socketUrl, options);
   socket.on('connect', () => {

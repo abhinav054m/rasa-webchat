@@ -402,11 +402,14 @@ class Widget extends Component {
         start a new session.
         */
         const localId = this.getSessionId();
+        if (sendInitPayload) {
+          this.trySendInitPayload();
+        }
         if (localId !== remoteId) {
           // storage.clear();
           // Store the received session_id to storage
 
-          // storeLocalSession(storage, SESSION_NAME, remoteId);
+          storeLocalSession(storage, SESSION_NAME, remoteId);
           dispatch(pullSession());
           if (sendInitPayload) {
             this.trySendInitPayload();
@@ -467,7 +470,7 @@ class Widget extends Component {
     // Send initial payload when chat is opened or widget is shown
     if (!initialized && connected && ((isChatOpen && isChatVisible) || embedded)) {
       // Only send initial payload if the widget is connected to the server but not yet initialized
-
+      console.log("sending init payload .......")
       const sessionId = this.getSessionId();
 
       // check that session_id is confirmed
@@ -676,7 +679,7 @@ Widget.defaultProps = {
   isChatVisible: true,
   fullScreenMode: false,
   connectOn: 'mount',
-  autoClearCache: false,
+  autoClearCache: true,
   displayUnreadCount: false,
   tooltipPayload: null,
   inputTextFieldHint: 'Type a message...',

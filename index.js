@@ -220,7 +220,6 @@ export const selfMount = (props, element = null) => {
     ReactDOM.render(webchatPro, mountElement);
   };
   if (document.readyState === 'complete') {
-    console.log("loaded")
     load();
   } else {
     window.addEventListener('load', () => {
@@ -228,7 +227,6 @@ export const selfMount = (props, element = null) => {
     });
   }
   window.addEventListener('load',()=>{
-    console.log("This is the init log ........ ");
     load();
   })
 };

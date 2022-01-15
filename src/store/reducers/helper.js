@@ -97,7 +97,7 @@ export function getLocalSession(storage, key) {
     // Create a new session to return
     session = {
       ...parsedSession,
-      conversation: [],
+      conversation: formattedConversation,
       params: formattedParams,
       metadata: formattedMetadata
     };
